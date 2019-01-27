@@ -1,0 +1,86 @@
+<div id ='fsection' class="container" style="width:700px">
+
+      <div class="row">
+          <div class="col-xs-4">
+              <label class="btn btn-default">
+                   <input  #myInput type="file" (change)="onSelectFile($event)">
+                </label>
+            </div>
+      </div>
+
+      <div class="row">
+          <div class="col-2">
+              <button type="button" class="btn btn-success" [disabled]="!selectedFiles" (click)="onSubmit()">Upload</button>
+            </div>
+            <div class="col-6">
+                <button type="button" class="btn btn-danger" (click)="onCancel()">Cancel</button>
+            </div>
+        </div>
+  <hr>
+
+  <div class="row">
+      <div class="col-xs-12">
+          <table class="table table-bordered" *ngIf="viewMode">
+                <thead>
+              <tr>
+                  <th>Reference </th>
+                  <th>Account Number </th>
+                  <th>Description </th>
+                  <th>Start Balance </th>
+                  <th>Mutation </th>
+                  <th>End Balance </th>
+                  <th>IsValid </th>
+              </tr>
+              </thead>
+              <tbody *ngFor="let record of records">
+                  <tr>
+                      <td>{{ record.reference }}</td>
+                      <td>{{ record.accountNumber }}</td>
+                      <td>{{ record.description }}</td>
+                      <td>{{ record.startBalance }}</td>
+                      <td>{{ record.mutation }}</td>
+                      <td>{{ record.endBalance }}</td>
+                      <td>{{ record.isValid }}</td>
+                  </tr>
+              </tbody>
+            </table>
+        </div>
+    </div>   
+
+    <div class="row">
+            <div class="col-xs-12">
+                <label class="btn btn-default">
+                   <button (click)="getAllRecords()">Get Records</button>
+                  </label>
+              </div>
+        </div>
+    
+        <div class="row">
+            <div class="col-xs-12">
+                <table class="table table-striped" cellpadding="1" cellspacing="1" *ngIf="sampleView">
+                        <thead>
+                    <tr>
+                        <th>Reference </th>
+                        <th>Account Number </th>
+                        <th>Description </th>
+                        <th>Start Balance </th>
+                        <th>Mutation </th>
+                        <th>End Balance </th>
+                        <th>IsValid </th>
+                    </tr>
+                </thead>
+                    <tbody *ngFor="let data of datas">
+                        <tr>
+                            <td>{{ data.reference }}</td>
+                            <td>{{ data.accountNumber }}</td>
+                            <td>{{ data.description }}</td>
+                            <td>{{ data.startBalance }}</td>
+                            <td>{{ data.mutation }}</td>
+                            <td>{{ data.endBalance }}</td>
+                            <td>{{ data.isValid }}</td>
+                        </tr>
+                    </tbody>
+                  </table>
+              </div>
+          </div>       
+</div>

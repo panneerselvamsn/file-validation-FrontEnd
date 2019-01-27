@@ -1,0 +1,6 @@
+{
+    "/FileUpload/*": {
+      "target": "http://localhost:9090/FileUpload",
+      "secure": false
+    }
+  }

@@ -22,7 +22,7 @@ export class FileuploadService {
   uploadFileToBackEnd(file: File): Observable<Record[]>{
     const formData : FormData = new FormData();
     formData.append('file',file);
-    return this.httpClient.post<Record[]>(this.fileValidationURL, formData, httpOptions)
+    return this.httpClient.post<Record[]>(this.fileValidationURL, formData)
     .pipe(tap((record: Record[])=> console.log(record)),
     catchError(this.handleErrors)
     );
